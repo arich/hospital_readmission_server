@@ -1,0 +1,83 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :provider_number, class: "control-label" %>
+    <%= number_input f, :provider_number, class: "form-control" %>
+    <%= error_tag f, :provider_number %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :state, class: "control-label" %>
+    <%= text_input f, :state, class: "form-control" %>
+    <%= error_tag f, :state %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :measure_name, class: "control-label" %>
+    <%= text_input f, :measure_name, class: "form-control" %>
+    <%= error_tag f, :measure_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :number_of_discharges, class: "control-label" %>
+    <%= number_input f, :number_of_discharges, class: "form-control" %>
+    <%= error_tag f, :number_of_discharges %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :footnote, class: "control-label" %>
+    <%= text_input f, :footnote, class: "form-control" %>
+    <%= error_tag f, :footnote %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :excess_readmission_ratio, class: "control-label" %>
+    <%= number_input f, :excess_readmission_ratio, step: "any", class: "form-control" %>
+    <%= error_tag f, :excess_readmission_ratio %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :predicted_readmission_ratio, class: "control-label" %>
+    <%= number_input f, :predicted_readmission_ratio, step: "any", class: "form-control" %>
+    <%= error_tag f, :predicted_readmission_ratio %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :expected_readmission_rate, class: "control-label" %>
+    <%= number_input f, :expected_readmission_rate, step: "any", class: "form-control" %>
+    <%= error_tag f, :expected_readmission_rate %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :number_of_readmissions, class: "control-label" %>
+    <%= number_input f, :number_of_readmissions, class: "form-control" %>
+    <%= error_tag f, :number_of_readmissions %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :start_date, class: "control-label" %>
+    <%= datetime_select f, :start_date, class: "form-control" %>
+    <%= error_tag f, :start_date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :end_date, class: "control-label" %>
+    <%= datetime_select f, :end_date, class: "form-control" %>
+    <%= error_tag f, :end_date %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,68 @@
+<h2>Show hospital</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @hospital.name %>
+  </li>
+
+  <li>
+    <strong>Provider number:</strong>
+    <%= @hospital.provider_number %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @hospital.state %>
+  </li>
+
+  <li>
+    <strong>Measure name:</strong>
+    <%= @hospital.measure_name %>
+  </li>
+
+  <li>
+    <strong>Number of discharges:</strong>
+    <%= @hospital.number_of_discharges %>
+  </li>
+
+  <li>
+    <strong>Footnote:</strong>
+    <%= @hospital.footnote %>
+  </li>
+
+  <li>
+    <strong>Excess readmission ratio:</strong>
+    <%= @hospital.excess_readmission_ratio %>
+  </li>
+
+  <li>
+    <strong>Predicted readmission ratio:</strong>
+    <%= @hospital.predicted_readmission_ratio %>
+  </li>
+
+  <li>
+    <strong>Expected readmission rate:</strong>
+    <%= @hospital.expected_readmission_rate %>
+  </li>
+
+  <li>
+    <strong>Number of readmissions:</strong>
+    <%= @hospital.number_of_readmissions %>
+  </li>
+
+  <li>
+    <strong>Start date:</strong>
+    <%= @hospital.start_date %>
+  </li>
+
+  <li>
+    <strong>End date:</strong>
+    <%= @hospital.end_date %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: hospital_path(@conn, :edit, @hospital) %>
+<%= link "Back", to: hospital_path(@conn, :index) %>

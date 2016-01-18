@@ -1,0 +1,48 @@
+<h2>Listing hospitals</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Provider number</th>
+      <th>State</th>
+      <th>Measure name</th>
+      <th>Number of discharges</th>
+      <th>Footnote</th>
+      <th>Excess readmission ratio</th>
+      <th>Predicted readmission ratio</th>
+      <th>Expected readmission rate</th>
+      <th>Number of readmissions</th>
+      <th>Start date</th>
+      <th>End date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for hospital <- @hospitals do %>
+    <tr>
+      <td><%= hospital.name %></td>
+      <td><%= hospital.provider_number %></td>
+      <td><%= hospital.state %></td>
+      <td><%= hospital.measure_name %></td>
+      <td><%= hospital.number_of_discharges %></td>
+      <td><%= hospital.footnote %></td>
+      <td><%= hospital.excess_readmission_ratio %></td>
+      <td><%= hospital.predicted_readmission_ratio %></td>
+      <td><%= hospital.expected_readmission_rate %></td>
+      <td><%= hospital.number_of_readmissions %></td>
+      <td><%= hospital.start_date %></td>
+      <td><%= hospital.end_date %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: hospital_path(@conn, :show, hospital), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: hospital_path(@conn, :edit, hospital), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: hospital_path(@conn, :delete, hospital), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New hospital", to: hospital_path(@conn, :new) %>
