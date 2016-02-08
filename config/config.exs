@@ -5,6 +5,14 @@
 # is restricted to this project.
 use Mix.Config
 
+config :hospital_readmission_server, HospitalReadmissionServer.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "hospital_readmission_server_repo",
+  username: "ezbc",
+  password: "password",
+  hostname: "localhost"
+
+
 # Configures the endpoint
 config :hospital_readmission_server, HospitalReadmissionServer.Endpoint,
   url: [host: "localhost"],
