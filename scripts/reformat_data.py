@@ -81,7 +81,7 @@ def main():
     # remove 'not-availables'
     df = df.replace('Not Available', np.nan)
 
-    df.to_csv(FILENAME_REFORMATED, index=0)
+    df.to_csv(FILENAME_REFORMATED, index=False)
 
     if PLOT:
         import matplotlib.pyplot as plt
