@@ -2,7 +2,8 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
   use Ecto.Migration
 
   def up do
-    abs_path = Path.absname('priv/repo/data_files/Hospital_Readmissions_Reduction_Program.csv')
+    #abs_path = Path.absname('priv/repo/data_files/Hospital_Readmissions_Reduction_Program.csv')
+    abs_path = Path.absname('/usr/share/Reformatted_Hospital_Data.csv')
     IO.puts(abs_path)
 
     # Remove not null restriction on inserted_at and updated_at
