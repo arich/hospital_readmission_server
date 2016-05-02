@@ -70,11 +70,15 @@ def main():
     # Attempt to coerce to numbers (including strings), with unconvertible
     # values becoming NaN.
     df = df.convert_objects(convert_numeric=True)
+
+    # Reformat data times
     df["Start Date"] = pd.to_datetime(
                                       df["Start Date"],
+                                      format='%m/%d/%Y',
                                       )
     df["End Date"] = pd.to_datetime(
                                     df["End Date"],
+                                    format='%m/%d/%Y',
                                     )
 
     # remove 'not-availables'
@@ -91,7 +95,9 @@ def main():
         df[column][indices] = -1
         df[column] = df[column].astype(int)
 
-    df.to_csv(FILENAME_REFORMATED, index=False)
+    df.to_csv(FILENAME_REFORMATED,
+              index=False,
+              )
     os.system("sudo cp " + FILENAME_REFORMATED + ' /usr/share/')
 
     if PLOT:
