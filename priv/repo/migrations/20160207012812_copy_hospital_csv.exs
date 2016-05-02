@@ -34,10 +34,11 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
       WITH CSV HEADER;
     """
 
+    # elixir writes timestamps without timezone  = postgres.localtimestamp
     execute """
       UPDATE hospitals
-        SET inserted_at = current_time,
-        updated_at = current_time
+        SET inserted_at = localtimestamp,
+        updated_at = localtimestamp
       WHERE
         inserted_at IS NULL
         OR updated_at IS NULL;
