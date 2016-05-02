@@ -8,7 +8,8 @@ CREATE TABLE states(
 );
 
 SELECT * FROM hospitals
-LIMIT 1;
+WHERE number_of_discharges is not NULL
+LIMIT 10;
 
 ALTER TABLE states
 ADD CONSTRAINT state_fk

@@ -70,26 +70,38 @@ def main():
     # Attempt to coerce to numbers (including strings), with unconvertible
     # values becoming NaN.
     df = df.convert_objects(convert_numeric=True)
+
+    # Reformat data times
     df["Start Date"] = pd.to_datetime(
-        df["Start Date"]
-        )
+                                      df["Start Date"],
+                                      format='%m/%d/%Y',
+                                      )
     df["End Date"] = pd.to_datetime(
-        df["End Date"]
-        )
+                                    df["End Date"],
+                                    format='%m/%d/%Y',
+                                    )
 
     # remove 'not-availables'
     df = df.replace('Not Available', np.nan)
 
-    # convert ints
-    columns = ['Number of Discharges',]
+    # convert NaNs in int array to -1
+    # http://pandas.pydata.org/pandas-docs/stable/gotchas.html#na-type-promotions
+    columns = ['Number of Discharges',
+               'Provider Number',
+               'Number of Readmissions',
+               ]
     for column in columns:
-        indices = ~np.isnan(df[column].values)
-        df[column][indices] = df[column][indices].astype(int)
-        print type(df[column].values[0])
-    df[column] = df[column].astype(object)
+        indices = np.isnan(df[column].values)
+        df[column][indices] = -1
+        df[column] = df[column].astype(int)
 
-    df.to_csv(FILENAME_REFORMATED, index=False)
-    os.system("sudo cp " + FILENAME_REFORMATED + ' /usr/share/')
+    df.to_csv(FILENAME_REFORMATED,
+              index=False,
+              date_format='%Y-%m-%d',
+              )
+
+    print('copy ' + FILENAME_REFORMATED + ' to /usr/share/ with:')
+    print("sudo cp " + FILENAME_REFORMATED + ' /usr/share/.')
 
     if PLOT:
         import matplotlib.pyplot as plt

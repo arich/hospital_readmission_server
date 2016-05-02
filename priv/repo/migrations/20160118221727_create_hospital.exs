@@ -13,8 +13,8 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CreateHospital do
       add :predicted_readmission_ratio, :float
       add :expected_readmission_rate, :float
       add :number_of_readmissions, :integer
-      add :start_date, :datetime
-      add :end_date, :datetime
+      add :start_date, :date
+      add :end_date, :date
 
       timestamps
     end
