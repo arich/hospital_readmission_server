@@ -97,6 +97,7 @@ def main():
 
     df.to_csv(FILENAME_REFORMATED,
               index=False,
+              date_format='%Y-%m-%d',
               )
     os.system("sudo cp " + FILENAME_REFORMATED + ' /usr/share/')
 
