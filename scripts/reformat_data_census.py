@@ -74,6 +74,7 @@ def main():
     DIR_DATA_PROD = '../data_products/'
     FILENAME_DATA = DIR_DATA + 'NST-EST2015-alldata.csv'
     FILENAME_REFORMATED = DIR_DATA + 'Reformatted_Census_Data.csv'
+    FILENAME_REFORMATED = DIR_DATA + 'Reformatted_Census_Data.csv'
 
     df = pd.read_csv(FILENAME_DATA,
                   sep=',',

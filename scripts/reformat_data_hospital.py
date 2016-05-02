@@ -2,6 +2,7 @@
 
 import pandas as pd
 import numpy as np
+import os
 
 def plot_data(df):
 
@@ -79,7 +80,16 @@ def main():
     # remove 'not-availables'
     df = df.replace('Not Available', np.nan)
 
+    # convert ints
+    columns = ['Number of Discharges',]
+    for column in columns:
+        indices = ~np.isnan(df[column].values)
+        df[column][indices] = df[column][indices].astype(int)
+        print type(df[column].values[0])
+    df[column] = df[column].astype(object)
+
     df.to_csv(FILENAME_REFORMATED, index=False)
+    os.system("sudo cp " + FILENAME_REFORMATED + ' /usr/share/')
 
     if PLOT:
         import matplotlib.pyplot as plt
