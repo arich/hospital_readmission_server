@@ -99,7 +99,9 @@ def main():
               index=False,
               date_format='%Y-%m-%d',
               )
-    os.system("sudo cp " + FILENAME_REFORMATED + ' /usr/share/')
+
+    print('copy ' + FILENAME_REFORMATED + ' to /usr/share/ with:')
+    print("sudo cp " + FILENAME_REFORMATED + ' /usr/share/.')
 
     if PLOT:
         import matplotlib.pyplot as plt
