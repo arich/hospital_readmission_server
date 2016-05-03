@@ -7,10 +7,6 @@ CREATE TABLE states(
   abbrev varchar(2)
 );
 
-SELECT * FROM hospitals
-WHERE number_of_discharges is not NULL
-LIMIT 10;
-
 ALTER TABLE states
 ADD CONSTRAINT state_fk
 FOREIGN KEY (abbrev)
