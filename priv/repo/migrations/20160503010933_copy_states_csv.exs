@@ -26,7 +26,7 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyStatesCsv do
 
     # elixir writes timestamps without timezone  = postgres.localtimestamp
     execute """
-      UPDATE hospitals
+      UPDATE states
         SET inserted_at = localtimestamp,
         updated_at = localtimestamp
       WHERE
@@ -36,7 +36,7 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyStatesCsv do
 
     # Readd not null restriction on inserted_at and updated_at
     execute """
-      ALTER TABLE hospitals
+      ALTER TABLE states
       ALTER COLUMN inserted_at
       SET NOT NULL,
       ALTER COLUMN updated_at
