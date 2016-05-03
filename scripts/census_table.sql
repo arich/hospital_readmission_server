@@ -41,3 +41,4 @@ WHERE states.abbrev = 'WI';
 
 
 VACUUM ANALYZE;
+
