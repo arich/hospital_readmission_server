@@ -58,12 +58,17 @@ def main():
     # http://pandas.pydata.org/pandas-docs/stable/gotchas.html#na-type-promotions
     columns = ['ZIP Code',
                'Phone Number',
+               'Provider ID',
                ]
     for column in columns:
         indices = np.isnan(df[column].values)
         df[column][indices] = -1
         df[column] = df[column].astype(int)
 
+    # rename provider ID
+    df.rename(columns={'Provider ID': 'Provider Number'}, inplace=True)
+
+    # write to a csv
     df.to_csv(FILENAME_REFORMATED,
               index=False,
               #date_format='%Y-%m-%d',
