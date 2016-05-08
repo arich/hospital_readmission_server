@@ -103,6 +103,9 @@ def main():
 
     df_crop.to_csv(FILENAME_REFORMATED, index=False)
 
+    print('copy ' + FILENAME_REFORMATED + ' to /usr/share/ with:')
+    print("sudo cp " + FILENAME_REFORMATED + ' /usr/share/.')
+
     if PLOT:
         import matplotlib.pyplot as plt
 
