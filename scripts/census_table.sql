@@ -2,7 +2,7 @@
 
 ALTER TABLE states ADD CONSTRAINT abbrev_key UNIQUE (abbrev);
 
-# create column for state ID changed comment
+# create column for state ID
 ALTER TABLE hospitals ADD COLUMN state_id integer;
 
 # update hospitals
