@@ -1,4 +1,4 @@
-﻿-- Database: hospital_readmission_server_dev
+-- Database: hospital_readmission_server_dev
 
 ALTER TABLE states ADD CONSTRAINT abbrev_key UNIQUE (abbrev);
 
@@ -7,7 +7,7 @@ ALTER TABLE hospitals ADD COLUMN state_id integer;
 
 # update hospitals
 # state_id = s.id is an alias
-UPDATE hospitals 
+UPDATE hospitals
 SET state_id = s.id
 FROM states s
 WHERE state = s.abbrev;
@@ -41,4 +41,3 @@ WHERE states.abbrev = 'WI';
 
 
 VACUUM ANALYZE;
-
