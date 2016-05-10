@@ -157,6 +157,12 @@ def main():
     # merge tables on Provider Number
     df = merge_owner_to_hosp(df_hosp, df_gen)
 
+    print('Number of unique hospitals in readmissions table:')
+    print(np.size(np.unique(df_hosp['Provider Number'].values)))
+    print('')
+    print('Number of readmissions rows not in contact table:')
+    print(len(df_hosp) - len(df))
+
     if PLOT:
         show = True
         import matplotlib.pyplot as plt
