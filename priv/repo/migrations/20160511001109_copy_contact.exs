@@ -1,4 +1,4 @@
-defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
+defmodule HospitalReadmissionServer.Repo.Migrations.CopyContact do
   use Ecto.Migration
 
   def up do
@@ -21,7 +21,7 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
         address,
         city,
         state,
-        ZIP,
+        zip,
         county_name,
         phone_number,
         hospital_type,
@@ -44,11 +44,11 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
         SET provider_number = NULL
         WHERE provider_number = -1;
     """
-    execute """
-      UPDATE hospital_contacts
-        SET phone_number = NULL
-        WHERE phone_number = -1;
-    """
+    #execute """
+    #UPDATE hospital_contacts
+    #SET phone_number = NULL
+    #WHERE phone_number = -1;
+    #"""
 
     # elixir writes timestamps without timezone  = postgres.localtimestamp
     execute """
@@ -71,7 +71,6 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CopyHospitalCsv do
   end
 
   def down do
-
   end
 end
 
