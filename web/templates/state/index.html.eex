@@ -1,0 +1,30 @@
+<h2>Listing states</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abbrev</th>
+      <th>Population</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for state <- @states do %>
+    <tr>
+      <td><%= state.name %></td>
+      <td><%= state.abbrev %></td>
+      <td><%= state.population %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: state_path(@conn, :show, state), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: state_path(@conn, :edit, state), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: state_path(@conn, :delete, state), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New state", to: state_path(@conn, :new) %>
