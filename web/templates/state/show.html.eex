@@ -1,0 +1,23 @@
+<h2>Show state</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @state.name %>
+  </li>
+
+  <li>
+    <strong>Abbrev:</strong>
+    <%= @state.abbrev %>
+  </li>
+
+  <li>
+    <strong>Population:</strong>
+    <%= @state.population %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: state_path(@conn, :edit, @state) %>
+<%= link "Back", to: state_path(@conn, :index) %>

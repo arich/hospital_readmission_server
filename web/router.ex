@@ -18,6 +18,7 @@ defmodule HospitalReadmissionServer.Router do
 
     get "/", PageController, :index
     resources "/hospitals", HospitalController
+    resources "/states", StateController
   end
 
   # Other scopes may use custom stacks.
