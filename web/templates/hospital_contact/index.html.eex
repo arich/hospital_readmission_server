@@ -1,0 +1,48 @@
+<h2>Listing hospital contacts</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Provider number</th>
+      <th>Hospital name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>County name</th>
+      <th>Phone number</th>
+      <th>Hospital type</th>
+      <th>Hospital ownership</th>
+      <th>Emergency services</th>
+      <th>Location</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for hospital_contact <- @hospital_contacts do %>
+    <tr>
+      <td><%= hospital_contact.provider_number %></td>
+      <td><%= hospital_contact.hospital_name %></td>
+      <td><%= hospital_contact.address %></td>
+      <td><%= hospital_contact.city %></td>
+      <td><%= hospital_contact.state %></td>
+      <td><%= hospital_contact.zip %></td>
+      <td><%= hospital_contact.county_name %></td>
+      <td><%= hospital_contact.phone_number %></td>
+      <td><%= hospital_contact.hospital_type %></td>
+      <td><%= hospital_contact.hospital_ownership %></td>
+      <td><%= hospital_contact.emergency_services %></td>
+      <td><%= hospital_contact.location %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: hospital_contact_path(@conn, :show, hospital_contact), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: hospital_contact_path(@conn, :edit, hospital_contact), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: hospital_contact_path(@conn, :delete, hospital_contact), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New hospital contact", to: hospital_contact_path(@conn, :new) %>
