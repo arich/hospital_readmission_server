@@ -1,0 +1,68 @@
+<h2>Show hospital contact</h2>
+
+<ul>
+
+  <li>
+    <strong>Provider number:</strong>
+    <%= @hospital_contact.provider_number %>
+  </li>
+
+  <li>
+    <strong>Hospital name:</strong>
+    <%= @hospital_contact.hospital_name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @hospital_contact.address %>
+  </li>
+
+  <li>
+    <strong>City:</strong>
+    <%= @hospital_contact.city %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @hospital_contact.state %>
+  </li>
+
+  <li>
+    <strong>Zip:</strong>
+    <%= @hospital_contact.zip %>
+  </li>
+
+  <li>
+    <strong>County name:</strong>
+    <%= @hospital_contact.county_name %>
+  </li>
+
+  <li>
+    <strong>Phone number:</strong>
+    <%= @hospital_contact.phone_number %>
+  </li>
+
+  <li>
+    <strong>Hospital type:</strong>
+    <%= @hospital_contact.hospital_type %>
+  </li>
+
+  <li>
+    <strong>Hospital ownership:</strong>
+    <%= @hospital_contact.hospital_ownership %>
+  </li>
+
+  <li>
+    <strong>Emergency services:</strong>
+    <%= @hospital_contact.emergency_services %>
+  </li>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @hospital_contact.location %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: hospital_contact_path(@conn, :edit, @hospital_contact) %>
+<%= link "Back", to: hospital_contact_path(@conn, :index) %>
