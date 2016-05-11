@@ -21,3 +21,4 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CreateHospital do
 
   end
 end
+
