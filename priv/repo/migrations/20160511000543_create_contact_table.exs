@@ -8,7 +8,7 @@ defmodule HospitalReadmissionServer.Repo.Migrations.CreateContactTable do
       add :address, :string
       add :city, :string
       add :state, :string
-      add :ZIP, :integer
+      add :zip, :integer
       add :county_name, :string
       add :phone_number, :string
       add :hospital_type, :string
